@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<style>
+
+</style>
+
+<div class="row">
+   <div class="col-md-12">
+       <div id="mdb-lightbox-ui"></div>
+       <div class="mdb-lightbox no-margin">
+           <div class="row">
+               {% for object in object_list %} <!-- 객체 가져오기-->
+               {% if object.author == request.user %} <!-- 작성자 같아야 가져오기-->
+               <figure class="col-md-4">
+                   <div style="width: 18rem;">
+                       <img src="{{object.image.url}}" class="card-img-top" alt="...">
+                   </div>
+               </figure>
+               {% endif %}
+               {% endfor %}
+           </div>
+       </div>
+       <div class="col"></div> <!--로그인 리스트-->
+   </div>
+</div>
+
+{% endblock %}
